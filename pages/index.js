@@ -1,11 +1,11 @@
 import React from 'react'
-import { Button, Icon } from 'semantic-ui-react'
+import { Button, Icon, Container } from 'semantic-ui-react'
 
 import withPage from '../hocs/withPage'
 
 const IndexPage = () => {
   return (
-    <div>
+    <Container>
       <Button animated>
       <Button.Content visible>Next</Button.Content>
       <Button.Content hidden>
@@ -28,7 +28,7 @@ const IndexPage = () => {
         $12.99 a month
       </Button.Content>
     </Button>
-    </div>
+    </Container>
   )
 }
 

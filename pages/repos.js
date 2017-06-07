@@ -1,12 +1,12 @@
 import React from 'react'
-import {Button, Icon} from 'semantic-ui-react'
+import {Container} from 'semantic-ui-react'
 import withPage from '../hocs/withPage'
 
 const ReposPage = () => {
   return (
-    <div>
+    <Container>
       ReposPage
-    </div>
+    </Container>
   )
 }
 

@@ -1,14 +1,11 @@
 import React from 'react'
-import Head from 'next/head'
 import { Button, Icon } from 'semantic-ui-react'
+
+import withPage from '../hocs/withPage'
 
 const IndexPage = () => {
   return (
     <div>
-      <Head>
-        <title>My page title</title>
-        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.2/semantic.min.css"></link>
-      </Head>
       <Button animated>
       <Button.Content visible>Next</Button.Content>
       <Button.Content hidden>
@@ -35,4 +32,4 @@ const IndexPage = () => {
   )
 }
 
-export default IndexPage
+export default withPage(IndexPage, 'Homepage')

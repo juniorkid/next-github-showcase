@@ -1,5 +1,6 @@
 import React from 'react'
-import {Button, Icon} from 'semantic-ui-react' 
+import {Button, Icon} from 'semantic-ui-react'
+import withPage from '../hocs/withPage'
 
 const ReposPage = () => {
   return (
@@ -9,4 +10,4 @@ const ReposPage = () => {
   )
 }
 
-export default ReposPage
+export default withPage(ReposPage, 'repos page')

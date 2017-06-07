@@ -1,3 +1,9 @@
-export default () => (
-  <div>Hello</div>
-)
+import React from 'react'
+
+const IndexPage = () => {
+  return (
+    <div>
+      IndexPage
+    </div>
+  )
+}

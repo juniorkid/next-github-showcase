@@ -3,5 +3,8 @@
     "dev": "next",
     "build": "next build",
     "start": "next start"
+  },
+  "dependencies": {
+    "semantic-ui-react": "^0.68.5"
   }
 }

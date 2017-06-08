@@ -1,11 +1,16 @@
 import React from 'react'
-import {Input, Icon} from 'semantic-ui-react'
+import {Input} from 'semantic-ui-react'
 
-const Searchbar = () => (
-  <Input 
-    icon={<Icon name='search' inverted circular link />}
-    placeholder='Search...'
-  />
+const Searchbar = ({ onChange, loading }) => (
+  <div>
+    <Input
+      action={{ icon: 'search' }}
+      placeholder='Search...'
+      onChange={onChange}
+      fluid
+      loading={loading}
+    />
+  </div>
 )
 
 export default Searchbar

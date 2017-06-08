@@ -8,7 +8,7 @@ const RepoItem = ({id, name, html_url: htmlUrl, language, onClick, mouseOver}) =
 
   return (
     <a onClick={onClick} >
-      <Card style={mouseOver ? {border: '2px solid powderblue'}: null}>
+      <Card style={mouseOver ? {border: '2px solid powderblue', cursor: 'pointer'}: null}>
         <Card.Content>
           <Card.Header>
             {`${id}: ${name}`}

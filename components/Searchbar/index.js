@@ -1,5 +1,6 @@
 import React from 'react'
 import {Input, Button} from 'semantic-ui-react'
+import {withState} from 'recompose'
 
 /*const Searchbar = ({ onChange, loading }) => (
   <div>
@@ -10,7 +11,7 @@ import {Input, Button} from 'semantic-ui-react'
   </div>
 )*/
 
-class Searchbar extends React.Component {
+/*class Searchbar extends React.Component {
   state = {
     value: ''
   }
@@ -41,6 +42,27 @@ class Searchbar extends React.Component {
       </Input>
     )
   }
-}
+}*/
+
+const withValue = withState('value', 'setValue', '')
+
+const Searchbar = withValue(({ onChange, onSubmit, loading, value, setValue }) => {
+  const handleChange = (e) => {
+    setValue(e.target.value)
+  }
+
+  const handleSubmit = () => {
+    onSubmit(value)
+  }
+
+  return (
+    <div>
+      <Input action placeholder='Search...' fluid loading={loading} onChange={handleChange}>
+        <input />
+        <Button content="search" type="submit" onClick={handleSubmit} />
+      </Input>
+    </div>
+  )
+})
 
 export default Searchbar

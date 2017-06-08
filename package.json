@@ -5,6 +5,10 @@
     "start": "next start"
   },
   "dependencies": {
+    "next": "beta",
+    "react": "^15.5.4",
+    "react-dom": "^15.5.4",
+    "recompose": "^0.23.5",
     "semantic-ui-react": "^0.68.5",
     "styled-components": "^2.0.0"
   }

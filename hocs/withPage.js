@@ -34,8 +34,6 @@ export default (title = '') => (ComposedComponent) => (props) => {
     <div>
       <Head>
         <title>{title}</title>
-        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.2/semantic.min.css"></link>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css" />
       </Head>
       <Container fluid>
         <Header>

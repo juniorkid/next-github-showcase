@@ -5,6 +5,7 @@
     "start": "next start"
   },
   "dependencies": {
+    "lodash": "^4.17.4",
     "next": "beta",
     "prop-types": "^15.5.10",
     "react": "^15.5.4",

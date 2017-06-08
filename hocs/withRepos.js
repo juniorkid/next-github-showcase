@@ -5,7 +5,6 @@ const status = {
   success: 'success',
   failure: 'failure'
 }
-
 const api = (org) => {
   return new Promise((resolve, reject) => {
     setTimeout(() => {
@@ -72,9 +71,9 @@ const withRepos = (ComposedComponent) => (
           searchRepoWithOrganizeName={this.searchRepoWithOrganizeName}
           {...this.props}
         />
-      )
+      );
     }
   }
-)
+);
 
-export default withRepos
+export default withRepos;

@@ -57,9 +57,9 @@ const Searchbar = withValue(({ onChange, onSubmit, loading, value, setValue }) =
 
   return (
     <div>
-      <Input action placeholder='Search...' fluid loading={loading} onChange={handleChange}>
+      <Input action placeholder='Search...' fluid onChange={handleChange}>
         <input />
-        <Button content="search" type="submit" onClick={handleSubmit} />
+        <Button content="search" type="submit" onClick={handleSubmit} loading={loading} />
       </Input>
     </div>
   )

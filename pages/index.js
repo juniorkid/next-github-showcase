@@ -14,7 +14,10 @@ class IndexPage extends Component {
   render () {
     return (
       <div>
-        <Searchbar onSubmit={this.props.searchRepoWithOrganizeName} />
+        <Searchbar
+          onSubmit={this.props.searchRepoWithOrganizeName} 
+          loading={this.props.isFetchingRepo}
+        />
         <RepoListContainer>
           <RepoList repoList={this.props.repoList}/>
         </RepoListContainer>

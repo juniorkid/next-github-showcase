@@ -1,68 +1,75 @@
-import React, {Component} from 'react'
+import React, { Component } from 'react'
+
+const status = {
+  request: 'request',
+  success: 'success',
+  failure: 'failure'
+}
 
 const api = (org) => {
-    return new Promise((resolve ,reject)=>{
-        setTimeout(()=>{
-            if(org === 'facebook'){
-                return resolve([
-                    {
-                        name:'nook',
-                        id:'4',
-                        language:'en',
-                        html_url:'http//google.com'
-                    },
-                    {
-                        name: 'kkkk',
-                        id:'3',
-                        language:'en',
-                        html_url:'http//google.com'
-                    }
-                ])
-                   }
-        } , 2000    )
-    })
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      if (org === 'facebook') {
+        return resolve([
+          {
+            name: 'nook',
+            id: '4',
+            language: 'en',
+            html_url: 'http//google.com'
+          },
+          {
+            name: 'kkkk',
+            id: '3',
+            language: 'en',
+            html_url: 'http//google.com'
+          }
+        ])
+      }
+      return reject(new Error())
+    }, 2000)
+  })
 }
 
 const withRepos = (ComposedComponent) => (
   class extends Component {
-    
+
     state = {
-      isLoading: false,
-      data: []
+      status: '',
+      data: [],
     }
 
     searchRepoWithOrganizeName = (orgName) => {
       this.setState({
-          isLoading: true,
-          data: []
+        status: status.request,
+        data: []
       })
 
       // fetch(`https://api.github.com/orgs/${orgName}/repos`)
       api(orgName)
       // .then(res => res.json())
       .then(res => {
-          console.log('res',res)
+        console.log('res', res)
         this.setState({
-          isLoading: false,
+          status: status.success,
           data: res
         })
       })
       .catch(error => {
         this.setState({
-          isLoading: false,
+          status: status.failure,
           data: null
         })
       })
     }
-    
-    render () {
-      const { isLoading, data } = this.state
-      
+
+    render() {
+      const { status, data } = this.state
+
       return (
-        <ComposedComponent 
-          isFetchingRepo={isLoading} 
-          repoList={data} 
-          searchRepoWithOrganizeName={this.searchRepoWithOrganizeName} 
+        <ComposedComponent
+          status={status}
+          repoList={data}
+          searchRepoWithOrganizeName={this.searchRepoWithOrganizeName}
           {...this.props}
         />
       )

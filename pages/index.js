@@ -1,6 +1,6 @@
-import React, {Component} from 'react'
-import {func, bool, array} from 'prop-types'
-import {compose} from 'recompose'
+import React, { Component } from 'react'
+import { func, bool, string, array } from 'prop-types'
+import { compose } from 'recompose'
 import styled from 'styled-components'
 import Searchbar from '../components/Searchbar'
 import RepoList from '../components/RepoList'
@@ -14,19 +14,24 @@ const RepoListContainer = styled.div`
 
 class IndexPage extends Component {
 
-  componentWillReceiveProps (nextProps) {
+  componentWillReceiveProps(nextProps) {
     console.log(nextProps)
   }
 
-  render () {
+  render() {
     return (
       <div>
         <Searchbar
           onSubmit={this.props.searchRepoWithOrganizeName}
-          loading={this.props.isFetchingRepo}
+          loading={this.props.status === 'request'}
         />
         <RepoListContainer>
-          <RepoList repoList={this.props.repoList} />
+          { this.props.status === 'request' ? <div>Loading </div> : null}
+          { this.props.status === 'failure' ?
+            <div>Not found</div>
+            :
+            <RepoList repoList={this.props.repoList}/>
+          }
         </RepoListContainer>
       </div>
     )
@@ -35,7 +40,7 @@ class IndexPage extends Component {
 
 IndexPage.propTypes = {
   searchRepoWithOrganizeName: func,
-  isFetchingRepo: bool,
+  status: string,
   repoList: array
 }
 

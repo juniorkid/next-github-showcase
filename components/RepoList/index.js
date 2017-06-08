@@ -6,7 +6,7 @@ import RepoItem from '../RepoItem'
 
 const renderRepoList = (repoList = []) => (
   repoList.map((repo) => (
-    <Grid.Column key={repo.id}>
+    <Grid.Column key={repo.id} className="animated slideInUp">
       <RepoItem {...repo} onClick={() => Router.push(`/repos?id=${repo.id}`)} />
     </Grid.Column>
   ))

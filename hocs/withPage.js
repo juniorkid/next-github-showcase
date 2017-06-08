@@ -29,7 +29,7 @@ const Footer = styled.div`
   margin-top: -3em;
 `
 
-export default (ComposedComponent, title = '') => (props) => {
+export default (title = '') => (ComposedComponent) => (props) => {
   return (
     <div>
       <Head>

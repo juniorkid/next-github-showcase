@@ -1,4 +1,5 @@
 import React from 'react'
+import {string} from 'prop-types'
 import {Card} from 'semantic-ui-react'
 
 const RepoItem = ({id, name, html_url: htmlUrl, language}) => {
@@ -17,6 +18,13 @@ const RepoItem = ({id, name, html_url: htmlUrl, language}) => {
       </Card.Content>
     </Card>
   )
+}
+
+RepoItem.propTypes = {
+  id: string,
+  name: string,
+  html_url: string,
+  language: string
 }
 
 export default RepoItem

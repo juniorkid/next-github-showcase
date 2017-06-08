@@ -1,4 +1,6 @@
 import React, {Component} from 'react'
+import {func, bool, array} from 'prop-types'
+import {compose} from 'recompose'
 import styled from 'styled-components'
 import Searchbar from '../components/Searchbar'
 import RepoList from '../components/RepoList'
@@ -15,15 +17,24 @@ class IndexPage extends Component {
     return (
       <div>
         <Searchbar
-          onSubmit={this.props.searchRepoWithOrganizeName} 
+          onSubmit={this.props.searchRepoWithOrganizeName}
           loading={this.props.isFetchingRepo}
         />
         <RepoListContainer>
-          <RepoList repoList={this.props.repoList}/>
+          <RepoList repoList={this.props.repoList} />
         </RepoListContainer>
       </div>
     )
   }
 }
 
-export default withRepos(withPage(IndexPage, 'Homepage'))
+IndexPage.propTypes = {
+  searchRepoWithOrganizeName: func,
+  isFetchingRepo: bool,
+  repoList: array
+}
+
+export default compose(
+  withRepos,
+  withPage('Homepage')
+)(IndexPage)

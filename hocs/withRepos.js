@@ -36,7 +36,7 @@ const withRepos = (ComposedComponent) => (
       return (
         <ComposedComponent 
           isFetchingRepo={isLoading} 
-          repo={data} 
+          repoList={data} 
           searchRepoWithOrganizeName={this.searchRepoWithOrganizeName} 
           {...this.props}
         />

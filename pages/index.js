@@ -12,12 +12,11 @@ const RepoListContainer = styled.div`
 
 class IndexPage extends Component {
   render () {
-    console.log(this.props)
     return (
       <div>
-        <Searchbar onChange={(e) => {console.log(e.target.value)}} />
+        <Searchbar onSubmit={this.props.searchRepoWithOrganizeName} />
         <RepoListContainer>
-          <RepoList repoList={this.props.repo}/>
+          <RepoList repoList={this.props.repoList}/>
         </RepoListContainer>
       </div>
     )

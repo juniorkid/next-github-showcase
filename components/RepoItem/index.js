@@ -1,11 +1,10 @@
 import React from 'react'
-import {string, number} from 'prop-types'
+import {string, number, func} from 'prop-types'
 import {Card} from 'semantic-ui-react'
-import Link from 'next/link'
 
-const RepoItem = ({id, name, html_url: htmlUrl, language}) => {
+const RepoItem = ({id, name, html_url: htmlUrl, language, onClick}) => {
   return (
-    <Link href={`/repos?id=${id}`}>
+    <a onClick={onClick}>
       <Card>
         <Card.Content>
           <Card.Header>
@@ -19,7 +18,7 @@ const RepoItem = ({id, name, html_url: htmlUrl, language}) => {
           {language}
         </Card.Content>
       </Card>
-    </Link>
+    </a>
   )
 }
 
@@ -27,7 +26,8 @@ RepoItem.propTypes = {
   id: number,
   name: string,
   html_url: string,
-  language: string
+  language: string,
+  onClick: func
 }
 
 export default RepoItem

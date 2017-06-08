@@ -1,14 +1,21 @@
 import React from 'react'
 import {string, number, func} from 'prop-types'
+import styled from 'styled-components'
 import {Card} from 'semantic-ui-react'
-import withHover from 'react-with-hover'
 
 const RepoItem = ({id, name, html_url: htmlUrl, language, onClick, mouseOver}) => {
 
+  const CardWrapper = styled(Card)`
+    cursor: pointer;
+    
+    :hover {
+      box-shadow: 5px 8px 14px rgba(0,0,0,.13);
+    }
+  `
 
   return (
     <a onClick={onClick} >
-      <Card style={mouseOver ? {border: '2px solid powderblue', cursor: 'pointer'}: null}>
+      <CardWrapper>
         <Card.Content>
           <Card.Header>
             {`${id}: ${name}`}
@@ -20,8 +27,7 @@ const RepoItem = ({id, name, html_url: htmlUrl, language, onClick, mouseOver}) =
         <Card.Content extra>
           {language}
         </Card.Content>
-
-      </Card>
+      </CardWrapper>
     </a>
   )
 }
@@ -34,4 +40,4 @@ RepoItem.propTypes = {
   onClick: func
 }
 
-export default withHover( { transform: (flag) => ({ mouseOver: flag }) })(RepoItem)
+export default RepoItem

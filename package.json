@@ -2,9 +2,13 @@
   "scripts": {
     "dev": "next",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "lint": "eslint",
+    "lint:fix": "eslint --fix",
+    "lint-staged": "lint-staged"
   },
   "dependencies": {
+    "babel-eslint": "^7.2.3",
     "lodash": "^4.17.4",
     "next": "beta",
     "prop-types": "^15.5.10",
@@ -12,6 +16,16 @@
     "react-dom": "^15.5.4",
     "recompose": "^0.23.5",
     "semantic-ui-react": "^0.68.5",
-    "styled-components": "^2.0.0"
+    "styled-components": "^2.0.0",
+    "lint-staged": "3.4.2"
+  },
+  "devDependencies": {
+    "eslint": "3.19.0",
+    "eslint-config-airbnb-base": "11.2.0",
+    "eslint-import-resolver-babel-module": "3.0.0",
+    "eslint-plugin-import": "2.2.0"
+  },
+  "lint-staged": {
+    "*.js": "eslint"
   }
 }

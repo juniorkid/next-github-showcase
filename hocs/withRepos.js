@@ -1,5 +1,28 @@
 import React, {Component} from 'react'
 
+const api = (org) => {
+    return new Promise((resolve ,reject)=>{
+        setTimeout(()=>{
+            if(org === 'facebook'){
+                return resolve([
+                    {
+                        name:'nook',
+                        id:'4',
+                        language:'en',
+                        html_url:'http//google.com'
+                    },
+                    {
+                        name: 'kkkk',
+                        id:'3',
+                        language:'en',
+                        html_url:'http//google.com'
+                    }
+                ])
+                   }
+        } , 2000    )
+    })
+}
+
 const withRepos = (ComposedComponent) => (
   class extends Component {
     
@@ -14,9 +37,11 @@ const withRepos = (ComposedComponent) => (
           data: []
       })
 
-      fetch(`https://api.github.com/orgs/${orgName}/repos`)
-      .then(res => res.json())
+      // fetch(`https://api.github.com/orgs/${orgName}/repos`)
+      api(orgName)
+      // .then(res => res.json())
       .then(res => {
+          console.log('res',res)
         this.setState({
           isLoading: false,
           data: res

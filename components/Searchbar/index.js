@@ -51,16 +51,20 @@ const Searchbar = withValue(({ onChange, onSubmit, loading, value, setValue }) =
     setValue(e.target.value)
   }
 
-  const handleSubmit = () => {
-    onSubmit(value)
+  const handleSubmit = (e) => {
+      e.preventDefault()
+        onSubmit(value)
   }
 
   return (
     <div>
-      <Input action placeholder='Search...' fluid onChange={handleChange}>
+        <form onSubmit={handleSubmit}>
+      <Input action placeholder='Search...' fluid onChange={handleChange} >
+
         <input />
         <Button content="search" type="submit" onClick={handleSubmit} loading={loading} />
       </Input>
+        </form>
     </div>
   )
 })

@@ -13,6 +13,11 @@ const RepoListContainer = styled.div`
 `
 
 class IndexPage extends Component {
+
+  componentWillReceiveProps (nextProps) {
+    console.log(nextProps)
+  }
+
   render () {
     return (
       <div>

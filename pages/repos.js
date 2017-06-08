@@ -10,4 +10,4 @@ const ReposPage = () => {
   )
 }
 
-export default withPage(ReposPage, 'repos page')
+export default withPage('repos page')(ReposPage)

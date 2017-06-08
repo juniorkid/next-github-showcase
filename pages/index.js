@@ -4,6 +4,7 @@ import Searchbar from '../components/Searchbar'
 import RepoList from '../components/RepoList'
 
 import withPage from '../hocs/withPage'
+import withRepos from '../hocs/withRepos'
 
 const RepoListContainer = styled.div`
   margin: 30px 0;
@@ -11,15 +12,16 @@ const RepoListContainer = styled.div`
 
 class IndexPage extends Component {
   render () {
+    console.log(this.props)
     return (
       <div>
-        <Searchbar />
+        <Searchbar onChange={(e) => {console.log(e.target.value)}} />
         <RepoListContainer>
-          <RepoList />
+          <RepoList repoList={this.props.repo}/>
         </RepoListContainer>
       </div>
     )
   }
 }
 
-export default withPage(IndexPage, 'Homepage')
+export default withRepos(withPage(IndexPage, 'Homepage'))

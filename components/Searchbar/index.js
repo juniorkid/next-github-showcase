@@ -1,15 +1,12 @@
 import React from 'react'
-import {Input} from 'semantic-ui-react'
+import {Input, Button} from 'semantic-ui-react'
 
 const Searchbar = ({ onChange, loading }) => (
   <div>
-    <Input
-      action={{ icon: 'search' }}
-      placeholder='Search...'
-      onChange={onChange}
-      fluid
-      loading={loading}
-    />
+    <Input action placeholder='Search...' fluid loading={loading} onChange={onChange}>
+      <input />
+      <Button content="search" type="submit"/>
+    </Input>
   </div>
 )
 

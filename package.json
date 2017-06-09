@@ -2,6 +2,21 @@
   "scripts": {
     "dev": "next",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
+  },
+  "dependencies": {
+    "lodash": "^4.17.4",
+    "next": "beta",
+    "prop-types": "^15.5.10",
+    "react": "^15.5.4",
+    "react-dom": "^15.5.4",
+    "recompose": "^0.23.5",
+    "semantic-ui-react": "^0.68.5",
+    "styled-components": "^2.0.1"
+  },
+  "devDependencies": {
+    "@storybook/react": "^3.0.1"
   }
 }

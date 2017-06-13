@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import isEmpty from 'lodash/isEmpty'
 import {withState, compose} from 'recompose'
-import {Container} from 'semantic-ui-react'
+import {Container, Segment, Dimmer, Loader} from 'semantic-ui-react'
 
 import {STATUS} from '../../constants/status'
 import withRepos from '../../hocs/withRepos'
@@ -18,7 +18,9 @@ const SearchContainer = ({reposFetchStatus, reposList, reposErrorMessage, search
   const renderReposListByStatus = (reposFetchStatus) => {
       switch (reposFetchStatus) {
         case STATUS.REQUEST:
-          return <div>loading...</div>
+          return <Dimmer active inverted>
+                    <Loader size='massive' inverted>Loading</Loader>
+                 </Dimmer>
         case STATUS.SUCCESS:
         console.log(reposList)
           return <ReposList reposList={reposList}/>
